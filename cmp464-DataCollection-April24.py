@@ -198,24 +198,24 @@ def main():
      prefix2 = "https://en.wikipedia.org/wiki/List_of_best-selling_game_consoles"
      
      M = getFranchiseSalesFromWeb(prefix)
-     print(M)
+     #print(M)
      M2 = getFranchiseSalesDates(prefix)
-     print(M2)
+     #print(M2)
 
      t = np.arange( len(M2) )
      
      M3 = getFranchises(prefix)
-     print(M3)
+     #print(M3)
      
      M4 = getConsoleSales(prefix2)
-     print(M4)
+     #print(M4)
      M6 = getConsoleYears(prefix2)
-     print(M6)
+     #print(M6)
 
      t2 = np.arange( len(M4) )
 
      M5 = getConsoles(prefix2)
-     print(M5)
+     #print(M5)
 
      plt.bar(M2, M,width = .35, color = 'r', label="Total Franchise Sales") #Plot max as red
      plt.title("Franchises Sales: 1981 to 2017 Junior Peralta")       #Title for plot
@@ -230,18 +230,20 @@ def main():
      plt.ylabel("Franchise Sales")
      plt.show()
 
-     plt.bar(M6,M4, width = .35, color='b', label="Console Sales") #Plot max as red
+     plt.bar(t2,M6, color='b', label="Console Sales") #Plot max as red
      plt.title("Console Sales")       #Title for plot
      plt.xlabel('Total Console Sales')                     #Label for x-axis
      plt.ylabel('Console Release Dates')                   #Label for the y-axis
-     plt.legend(loc = 2,fontsize = 'x-small')#Make a legend in upper left corner
+     plt.legend()#Make a legend in upper left corner
+     plt.xticks(t2, M4, rotation = 'vertical')
      plt.show()
 
-     plt.scatter(M6,M4, c=t2)
+     plt.scatter(t2,M6)
      plt.title("Franchise Sales from 1981 to 2017")
      plt.xlabel("Franchise Dates")
      plt.ylabel("Franchise Sales")
+     plt.xticks(t2,M4, rotation = 'vertical')
+     plt.legend()
      plt.show()
-     
-          
+        
 main()
